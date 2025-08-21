@@ -15,7 +15,7 @@ class PostCreate(PostBase):
 class User(BaseModel):
     id: int
     email: EmailStr
-    # password: str
+    phone_number: str
     created_at: datetime
     
 class Post(PostBase):
@@ -34,8 +34,11 @@ class PostOut(BaseModel):
         orm_mode = True
     
 class UserBase(BaseModel):
+    name: str
     email: EmailStr
+    phone_number: str
     password: str
+    confirm_password: str
 
 class UserCreate(UserBase):
     pass
@@ -43,6 +46,10 @@ class UserCreate(UserBase):
     class Config:
         orm_mode = True
 
+class UserProfile(BaseModel):
+    name: str
+    email: str
+    phone_number: str
 
 class UserLogin(BaseModel):
     email: EmailStr
