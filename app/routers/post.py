@@ -18,7 +18,7 @@
 #     # new_post = cursor.fetchone()
 #     # conn.commit()
     
-#     new_post = models.Post(user_id = current_user.id, **post.dict())
+    # new_post = models.Post(user_id = current_user.id, **post.dict())
 #     db.add(new_post)
 #     db.commit()
 #     db.refresh(new_post)
