@@ -38,8 +38,10 @@ def get_all_spaces(db: Session = Depends(get_db), current_user: int = Depends(oa
 @router.get("/my-spaces", response_model=List[schemas.SpaceOut])
 def get_user_spaces(db: Session = Depends(get_db),current_user: int = Depends(oauth2.get_current_user),
                     limit: int = 15000,skip: int = 0,search: Optional[str] = ""):
+    print("Current User ID:", current_user.id)
     user_spaces = db.query(models.Space).filter(models.Space.user_id == current_user.id).filter(
         models.Space.title.contains(search)).limit(limit).offset(skip).all()
+    print("Spaces in DB for this user:", user_spaces)
     return user_spaces
 
 
