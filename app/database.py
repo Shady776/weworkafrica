@@ -8,6 +8,7 @@ import time
 
 # SQLALCHEMY_DATABASE_URL  = f'postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
 SQLALCHEMY_DATABASE_URL = f"postgresql://{settings.database_username}:{settings.database_password}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}"
+# SQLALCHEMY_DATABASE_URL = postgresql://users:5m576pkTI1ipHt0qsjUEfOqZbdI0B9mH@dpg-d2mnv1ripnbc73f47g70-a.oregon-postgres.render.com/africa_g3it
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 SessionLocal = sessionmaker(autocommit = False, autoflush = False, bind = engine)
